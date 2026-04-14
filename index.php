@@ -28,3 +28,25 @@
                 ?>
             </div>
         <?php endif; ?>
+
+        <div class="bg-white rounded shadow overflow-hidden">
+            <table class="w-full text-sm">
+                <thead class="bg-gray-200 text-gray-700">
+                    <tr>
+                        <th class="p-4 text-left">#</th>
+                        <th class="p-4 text-left">Nome</th>
+                        <th class="p-4 text-left">Descrição</th>
+                        <th class="p-4 text-left">Preço</th>
+                        <th class="p-4 text-left">Qtd</th>
+                        <th class="p-4 text-left">Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php
+                    $stmt = $pdo->query("SELECT * FROM produtos");
+                    $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    ?>
+                </tbody>
+            </table>
+        </div>
