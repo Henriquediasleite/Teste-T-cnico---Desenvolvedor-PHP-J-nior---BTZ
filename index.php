@@ -47,6 +47,32 @@
                     $stmt = $pdo->query("SELECT * FROM produtos");
                     $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     ?>
+
+                    <?php if ($produtos): ?>
+                        <?php foreach ($produtos as $p): ?>
+                            <tr class="border-t">
+                                <td class="p-3"><?= $p['id'] ?></td>
+                                <td class="p-3"><?= $p['nome'] ?></td>
+                                <td class="p-3"><?= $p['descricao'] ?></td>
+                                <td class="p-3">R$ <?= number_format($p['preco'], 2, ',', '.') ?></td>
+                                <td class="p-3"><?= $p['quantidade'] ?></td>
+
+                                <td class="p-3">
+                                    <a href="edit.php?id=<?= $p['id'] ?>" class="text-blue-600 text-sm">Editar</a>
+                                    |
+                                    <a href="delete.php?id=<?= $p['id'] ?>" onclick="return confirm('Excluir?')" class="text-red-600 text-sm">Excluir</a>
+                                </td>                                
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="6" class="p-3 text-center text-gray-500">Nenhum produto encontrado.</td>
+                        </tr>
+                    <?php endif; ?>
+
                 </tbody>
             </table>
         </div>
+    </div>
+</body>
+</html>
