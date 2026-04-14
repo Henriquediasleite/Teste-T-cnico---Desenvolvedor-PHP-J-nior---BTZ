@@ -59,7 +59,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label class="block mb-1 font-semibold">Quantidade *</label>
                 <input type="number" name="quantidade" class="w-full border rounded px-3 py-2" required value="<?= htmlspecialchars($_POST['quantidade'] ?? '') ?>">
             </div>
+
+            <div class="flex gap-3">
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Salvar</button>
+
+                <a href="index.php" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">Cancelar</a>
+            </div>
         </form>
     </div>
     
 </body>
+</html>
